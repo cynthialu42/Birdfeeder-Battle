@@ -81,6 +81,31 @@ $(document).ready(function(){
             $('#owlStats').html(health);
     }
 
+    function checkHealth(hero, villain){
+        if (isCharacterDead(hero) === true){
+            alert(`oh noes goodbye ${hero.name}`);
+            heroObj = {};
+            flag = false;
+        }
+        if (isCharacterDead(villain) === true){
+            alert(`oh noes goodbye ${villain.name}`);
+            villainObj = {};
+            if (villain.name === "squirrel"){
+                $('#dead').append(squirrelDiv);
+                squirrelFlag = false;
+            }
+            else if (villain.name === "cat"){
+                $('#dead').append(catDiv);
+                catFlag = false;
+            }
+            else{
+                $('#dead').append(owlDiv);
+                owlFlag = false;
+            }
+            villainPlayer = true;
+        }
+    }
+
     let heroHealth = '';
     let villainHealth = '';
     let heroPower = 0;
@@ -104,30 +129,7 @@ $(document).ready(function(){
         displayVillainName(villainName, villainHealth);
     
         // Check health
-        if (isCharacterDead(hero) === true){
-            alert(`oh noes goodbye ${hero.name}`);
-            heroObj = {};
-            flag = false;
-        }
-        if (isCharacterDead(villain) === true){
-            alert(`oh noes goodbye ${villain.name}`);
-            villainObj = {};
-            if (villain.name === "squirrel"){
-                $('#dead').append(squirrelDiv);
-                squirrelFlag = false;
-            }
-            else if (villain.name === "cat"){
-                $('#dead').append(catDiv);
-                catFlag = false;
-            }
-            else{
-                $('#dead').append(owlDiv);
-                owlFlag = false;
-            }
-            villainPlayer = true;
-        }
-
-        // Increase power
+        checkHealth(hero, villain);
 
         //console.log(`full hero power: ${heroPower}`);
         //console.log(hero.health);
