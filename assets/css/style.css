@@ -10,14 +10,14 @@
 .card{
     border: red solid 2px;
     width: 6em;
-    height: 7em;
+    height: 9em;
     text-align: center;
     padding: 1em 1em;
-    background: white;
+    background: paleturquoise;
 }
 
 .fight-progress{
-    width: 100%;
+    width: 50%;
     text-align: center;
     background: palegoldenrod;
    
@@ -34,7 +34,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 100%;
 }
 
 .villains{
@@ -63,3 +63,15 @@
     background: blue;
 }
 
+.image{
+    width: 100%;
+}
+
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}

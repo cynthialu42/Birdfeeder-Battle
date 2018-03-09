@@ -41,7 +41,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "cat",
         "health" : 50,
-        "multiplier" : 200,
+        "multiplier" : 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -86,6 +86,8 @@ $(document).ready(function(){
             $('.heroHit').empty();
             $('.villainHit').empty();
             $('.result').text(`Tie!`);
+            heroObj = {};
+            villainObj = {};
         }
         else if (isCharacterDead(hero) === true){
             heroObj = {};
@@ -120,12 +122,25 @@ $(document).ready(function(){
             return;
     }
 
-    function didHeroWin(){
+    function didHeroWin(hero){
         console.log("here");
         if (!squirrelFlag && !catFlag && !owlFlag){
             $('.heroHit').empty();
             $('.villainHit').empty();
             $('.result').text(`You have won the battle!`);
+            if (hero.name === "cardinal"){
+                $(".cardinal-fight-image").removeClass("show");
+                $(".cardinal-win-image").addClass("show");
+            }
+            else if (hero.name === "blue jay"){
+                $(".blue-fight-image").removeClass("show");
+                $(".blue-win-image").addClass("show");
+            }
+            else{
+                $(".wood-fight-image").removeClass("show");
+                $(".wood-win-image").addClass("show");
+            }
+            
             return true;
         }
         else
@@ -155,7 +170,7 @@ $(document).ready(function(){
     
         // Check health
         checkHealth(hero, villain);
-        didHeroWin();
+        didHeroWin(hero);
         //console.log(`full hero power: ${heroPower}`);
         //console.log(hero.health);
 
@@ -204,8 +219,8 @@ $(document).ready(function(){
             heroAttacker(cardinalDiv);
             heroPlayer = false;
             heroObj = cardinal;
-            //$(".card").addClass("test");
-            //heroObj.addClass("test");
+            $(".cardinal-image").addClass("hide");
+            $(".cardinal-fight-image").addClass("show");
         }   
     });
     $('#bluejay').on('click', function(){
@@ -213,6 +228,8 @@ $(document).ready(function(){
             heroAttacker(bluejayDiv);
             heroPlayer = false;
             heroObj = bluejay;
+            $(".blue-image").addClass("hide");
+            $(".blue-fight-image").addClass("show");
         }   
     });
     $('#woodpecker').on('click', function(){
@@ -220,6 +237,8 @@ $(document).ready(function(){
             heroAttacker(woodpeckerDiv);
             heroPlayer = false;
             heroObj = woodpecker;
+            $(".wood-image").addClass("hide");
+            $(".wood-fight-image").addClass("show");
         }    
     });
 
