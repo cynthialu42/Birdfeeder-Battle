@@ -15,23 +15,17 @@
     background: pink;
 }
 
+.heroes{
+    background: palevioletred;
+}
+
 .fighting-area{
     background: plum;
     display: flex;
 }
 
-.hero-fighting{
-    background: palegoldenrod;
+.defeated{
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 50%;
+    background: palegreen;
 }
 
-.villain-fighting{
-    background: peru;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 50%;
-}
