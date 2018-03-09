@@ -1,4 +1,37 @@
-.character-selection{
+.character-wrapper{
     display: flex;
     background: yellow;
+}
+
+.characters{
+    background: green;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.villains{
+    background: pink;
+}
+
+.fighting-area{
+    background: plum;
+    display: flex;
+}
+
+.hero-fighting{
+    background: palegoldenrod;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
+}
+
+.villain-fighting{
+    background: peru;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 50%;
 }
