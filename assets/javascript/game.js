@@ -32,7 +32,7 @@ $(document).ready(function(){
     var squirrel = {
         "name" : "squirrel",
         "health" : 50,
-        "multiplier" : 5,
+        "multiplier" : 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
         }
@@ -41,7 +41,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "cat",
         "health" : 50,
-        "multiplier" : 5,
+        "multiplier" : 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
         }
@@ -50,7 +50,7 @@ $(document).ready(function(){
     var owl = {
         "name" : "owl",
         "health" : 45,
-        "multiplier" : 50,
+        "multiplier" : 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
         }
@@ -62,15 +62,44 @@ $(document).ready(function(){
         }
         return false;
     }
+    
+    function displayHeroName(name, health){
+        if (name === "cardinal")
+            $('#cardinalStats').html(health);
+        else if (name === "blue jay")
+            $('#bluejayStats').html(health);
+        else
+            $('#woodpeckerStats').html(health);
+    }
 
+    function displayVillainName(name, health){
+        if (name === "squirrel")
+            $('#squirrelStats').html(health);
+        else if (name === "cat")
+            $('#catStats').html(health);
+        else
+            $('#owlStats').html(health);
+    }
+
+    let heroHealth = '';
+    let villainHealth = '';
     function attack(hero, villain){
         let heroPower = hero.power();
+        let heroName = hero.name;
+        
         let villainPower = villain.power();
-
+        let villainName = villain.name;
+    
         hero.health -= villainPower;
         villain.health -= heroPower;
 
-        if (hero.name === "cardinal")
+        heroHealth = hero.health;
+        villainHealth = villain.health;
+        
+        displayHeroName(heroName, heroHealth);
+        displayVillainName(villainName, villainHealth);
+
+        /*if (hero.name === "cardinal")
             $('#cardinalStats').html(hero.health);
         else if (hero.name === "blue jay")
             $('#bluejayStats').html(hero.health);
@@ -83,11 +112,13 @@ $(document).ready(function(){
             $('#catStats').html(villain.health);
         else
             $('#owlStats').html(villain.health);
-
+        */
     
         // Check health
         if (isCharacterDead(hero) === true){
             alert(`oh noes goodbye ${hero.name}`);
+            heroObj = {};
+            flag = false;
         }
         if (isCharacterDead(villain) === true){
             alert(`oh noes goodbye ${villain.name}`);
@@ -113,8 +144,6 @@ $(document).ready(function(){
     }
     
     $('#attackBtn').on('click', function(){
-        // minus things
-        // minus more things!
         attack(heroObj, villainObj);
     });
     
@@ -148,22 +177,23 @@ $(document).ready(function(){
 
     //Events
     let heroPlayer = true;
+    let flag = true;
     $('#cardinal').on('click', function(){
-        if (heroPlayer){
+        if (heroPlayer && flag){
             heroAttacker(cardinalDiv);
             heroPlayer = false;
             heroObj = cardinal;
         }   
     });
     $('#bluejay').on('click', function(){
-        if (heroPlayer){
+        if (heroPlayer && flag){
             heroAttacker(bluejayDiv);
             heroPlayer = false;
             heroObj = bluejay;
         }   
     });
     $('#woodpecker').on('click', function(){
-        if (heroPlayer){
+        if (heroPlayer && flag){
             heroAttacker(woodpeckerDiv);
             heroPlayer = false;
             heroObj = woodpecker;
