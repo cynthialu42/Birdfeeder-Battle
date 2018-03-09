@@ -6,7 +6,7 @@ $(document).ready(function(){
         "health": 200,
         "multiplier": 10,
         "power" : function(){
-            return Math.floor(Math.random() * this.multiplier)
+            return Math.floor(Math.random() * this.multiplier);
         }
     };
 
@@ -15,7 +15,7 @@ $(document).ready(function(){
         "health": 300,
         "multiplier": 10,
         "power" : function(){
-            return Math.floor(Math.random() * this.multiplier)
+            return Math.floor(Math.random() * this.multiplier);
         }
     };
 
@@ -24,7 +24,7 @@ $(document).ready(function(){
         "health": 350,
         "multiplier": 10,
         "power" : function(){
-            return Math.floor(Math.random() * this.multiplier)
+            return Math.floor(Math.random() * this.multiplier);
         }
     };
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
         "health" : 50,
         "multiplier" : 20,
         "power" : function(){
-            return Math.floor(Math.random() * this.multiplier)
+            return Math.floor(Math.random() * this.multiplier);
         }
     };
 
@@ -43,7 +43,7 @@ $(document).ready(function(){
         "health" : 50,
         "multiplier" : 20,
         "power" : function(){
-            return Math.floor(Math.random() * this.multiplier)
+            return Math.floor(Math.random() * this.multiplier);
         }
     };
 
@@ -52,7 +52,7 @@ $(document).ready(function(){
         "health" : 45,
         "multiplier" : 20,
         "power" : function(){
-            return Math.floor(Math.random() * this.multiplier)
+            return Math.floor(Math.random() * this.multiplier);
         }
     };
 
@@ -83,8 +83,12 @@ $(document).ready(function(){
 
     let heroHealth = '';
     let villainHealth = '';
+    let heroPower = 0;
     function attack(hero, villain){
-        let heroPower = hero.power();
+        let tempHeroPower = hero.power();
+        //console.log(`Temp hero power: ${tempHeroPower}`);
+        heroPower += tempHeroPower;
+
         let heroName = hero.name;
         
         let villainPower = villain.power();
@@ -95,24 +99,9 @@ $(document).ready(function(){
 
         heroHealth = hero.health;
         villainHealth = villain.health;
-        
+
         displayHeroName(heroName, heroHealth);
         displayVillainName(villainName, villainHealth);
-
-        /*if (hero.name === "cardinal")
-            $('#cardinalStats').html(hero.health);
-        else if (hero.name === "blue jay")
-            $('#bluejayStats').html(hero.health);
-        else
-            $('#woodpeckerStats').html(hero.health);
-
-        if (villain.name === "squirrel")
-            $('#squirrelStats').html(villain.health);
-        else if (villain.name === "cat")
-            $('#catStats').html(villain.health);
-        else
-            $('#owlStats').html(villain.health);
-        */
     
         // Check health
         if (isCharacterDead(hero) === true){
@@ -138,8 +127,10 @@ $(document).ready(function(){
             villainPlayer = true;
         }
 
-        console.log(heroPower);
-        console.log(hero.health);
+        // Increase power
+
+        //console.log(`full hero power: ${heroPower}`);
+        //console.log(hero.health);
 
     }
     
