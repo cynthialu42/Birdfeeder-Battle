@@ -31,7 +31,7 @@ $(document).ready(function(){
     // Villain Objects
     var squirrel = {
         "name" : "squirrel",
-        "health" : 250,
+        "health" : 50,
         "multiplier" : 5,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
@@ -40,7 +40,7 @@ $(document).ready(function(){
 
     var cat = {
         "name" : "cat",
-        "health" : 500,
+        "health" : 50,
         "multiplier" : 5,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
@@ -49,7 +49,7 @@ $(document).ready(function(){
 
     var owl = {
         "name" : "owl",
-        "health" : 450,
+        "health" : 45,
         "multiplier" : 50,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
@@ -92,8 +92,18 @@ $(document).ready(function(){
         if (isCharacterDead(villain) === true){
             alert(`oh noes goodbye ${villain.name}`);
             villainObj = {};
-            $('#dead').append(squirrelDiv);
-            squirrelflag = false;
+            if (villain.name === "squirrel"){
+                $('#dead').append(squirrelDiv);
+                squirrelFlag = false;
+            }
+            else if (villain.name === "cat"){
+                $('#dead').append(catDiv);
+                catFlag = false;
+            }
+            else{
+                $('#dead').append(owlDiv);
+                owlFlag = false;
+            }
             villainPlayer = true;
         }
 
@@ -128,6 +138,8 @@ $(document).ready(function(){
     //Functions 
     function heroAttacker(attacker){
         heroAttackDiv.append(attacker);
+        //$('#heroName').append($('#cardinalName'));
+        //$('#heroStats').append($('#cardinalStats'));
     }
 
     function villainAttacker(attacker){
@@ -160,24 +172,25 @@ $(document).ready(function(){
 
     // Villain Character Selection
     let villainPlayer = true;
-    let squirrelflag = true;
-    let flag = true;
+    let squirrelFlag = true;
+    let catFlag = true;
+    let owlFlag = true;
     $('#squirrel').on('click', function(){
-        if (villainPlayer && squirrelflag){
+        if (villainPlayer && squirrelFlag){
             villainAttacker(squirrelDiv);
             villainPlayer = false;
             villainObj = squirrel;
         }   
     });
     $('#cat').on('click', function(){
-        if (villainPlayer && flag){
+        if (villainPlayer && catFlag){
             villainAttacker(catDiv);
             villainPlayer = false;
             villainObj = cat;
         }   
     });
     $('#owl').on('click', function(){
-        if (villainPlayer && flag){
+        if (villainPlayer && owlFlag){
             villainAttacker(owlDiv);
             villainPlayer = false;
             villainObj = owl;
