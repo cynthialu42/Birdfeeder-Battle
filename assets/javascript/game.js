@@ -1,7 +1,8 @@
 $(document).ready(function(){
     
-    var luke = {
-        "name": "luke",
+    // Hero objects
+    var cardinal = {
+        "name": "cardinal",
         "health": 200,
         "multiplier": 10,
         "power" : function(){
@@ -9,63 +10,120 @@ $(document).ready(function(){
         }
     };
 
-    var darthMaul = {
-        "name" : "darth maul",
-        "health" : 400,
+    var blueJay = {
+        "name": "blue jay",
+        "health": 300,
+        "multiplier": 10,
+        "power" : function(){
+            return Math.floor(Math.random() * this.multiplier)
+        }
+    };
+
+    var woodpecker = {
+        "name": "wood pecker",
+        "health": 350,
+        "multiplier": 10,
+        "power" : function(){
+            return Math.floor(Math.random() * this.multiplier)
+        }
+    };
+
+    // Villain Objects
+    var squirrel = {
+        "name" : "squirrel",
+        "health" : 250,
         "multiplier" : 5,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier)
         }
     };
-    function isJediDead(jedi){
-        if (jedi.health <= 0){
+
+    var cat = {
+        "name" : "cat",
+        "health" : 500,
+        "multiplier" : 5,
+        "power" : function(){
+            return Math.floor(Math.random() * this.multiplier)
+        }
+    };
+
+    var owl = {
+        "name" : "owl",
+        "health" : 450,
+        "multiplier" : 5,
+        "power" : function(){
+            return Math.floor(Math.random() * this.multiplier)
+        }
+    };
+
+    function isCharacterDead(character){
+        if (character.health <= 0){
             return true;
         }
         return false;
     }
 
-    function attack(jediOne, jediTwo){
-        let j1Pwer = jediOne.power();
-        let j2Pwer = jediTwo.power();
+    function attack(hero, villain){
+        let heroPwer = hero.power();
+        let villainPwer = villain.power();
 
-       jediOne.health -= j2Pwer;
-       jediTwo.health -= j1Pwer;
+       hero.health -= villainPwer;
+       villain.health -= heroPwer;
 
        // Increase power
        
 
        // Check health
-       if (isJediDead(jediOne) === true){
-           alert(`oh noes goodbye ${jediOne.name}`);
+       if (isCharacterDead(hero) === true){
+           alert(`oh noes goodbye ${hero.name}`);
        }
-       if (isJediDead(jediTwo) === true){
-            alert(`oh noes goodbye ${jediTwo.name}`);
+       if (isCharacterDead(villain) === true){
+            alert(`oh noes goodbye ${villain.name}`);
         }
 
-       console.log(j1Pwer);
-       console.log(jediOne.health);
+       console.log(heroPwer);
+       console.log(hero.health);
 
     }
     
     $('#attackBtn').on('click', function(){
         // minus things
         // minus more things!
-        attack(luke, darthMaul);
+        attack(cardinal, owl);
     });
     
 
     //Variables
-    let darthMaulDiv = $('#dm');
+    let fightingDiv = $('#owl');
+    let cardinalDiv = $('#cardinal');
+    let bluejayDiv = $('#bluejay');
+    let woodpeckerDiv = $('#woodpecker');
     let charAttackDiv = $('#attackCharacters');
+    let heroAttackDiv = $('#heroAttack');
+    let villainAttackDiv = $('#villainAttack');
     //Functions 
     function moveAttacker(attacker){
-        charAttackDiv.append(attacker);
+        heroAttackDiv.append(attacker);
     }
     //Events
-    //clicking luke will move darth maul below
-    $('#luke').on('click', function(){
-        moveAttacker(darthMaulDiv);
-        
+    let heroPlayer = true;
+    $('#cardinal').on('click', function(){
+        if (heroPlayer){
+            moveAttacker(cardinalDiv);
+            heroPlayer = false;
+        }   
+    });
+    $('#bluejay').on('click', function(){
+        if (heroPlayer){
+            moveAttacker(bluejayDiv);
+            heroPlayer = false;
+        }   
+    });
+    $('#woodpecker').on('click', function(){
+        if (heroPlayer){
+            moveAttacker(woodpeckerDiv);
+            heroPlayer = false;
+        }    
     });
 
     
