@@ -11,49 +11,58 @@
     <script src="./assets/javascript/game.js"></script>
 </head>
 <body>
-    <div class="character-wrapper">
-        <div class="heroes characters">
-            <div id = "cardinal">
-                <div>Cardinal</div>
-                <div id = "cardinalStats">200</div>
+    <div class="content-wrapper">
+        <div class="character-wrapper">
+            <div class="heroes characters">
+                <div class = "card" id = "cardinal">
+                    <div>Cardinal</div>
+                    <div id = "cardinalStats">200</div>
+                </div>
+                <div class = "card" id = "bluejay">
+                    <div>Blue Jay</div>
+                    <div id = "bluejayStats">300</div>
+                </div>
+                <div class = "card" id = "woodpecker">
+                    <div>Woodpecker</div>
+                    <div id = "woodpeckerStats">350</div>
+                </div>
             </div>
-            <div id = "bluejay">
-                <div>Blue Jay</div>
-                <div id = "bluejayStats">300</div>
-            </div>
-            <div id = "woodpecker">
-                <div>Woodpecker</div>
-                <div id = "woodpeckerStats">350</div>
-            </div>
+            <div class="villains characters">
+                <div class = "card" id = "squirrel">
+                    <div>Squirrel</div>
+                    <div id = "squirrelStats">50</div>
+                </div>
+                <div class = "card" id = "cat">
+                    <div>Cat</div>
+                    <div id = "catStats">50</div>
+                </div>
+                <div class = "card" id = "owl">
+                    <div>Owl</div>
+                    <div id = "owlStats">45</div>
+                </div>
+            </div>         
         </div>
-        <div class="villains characters">
-            <div id = "squirrel">
-                <div>Squirrel</div>
-                <div id = "squirrelStats">50</div>
-            </div>
-            <div id = "cat">
-                <div>Cat</div>
-                <div id = "catStats">50</div>
-            </div>
-            <div id = "owl">
-                <div>Owl</div>
-                <div id = "owlStats">45</div>
-            </div>
-        </div>         
-    </div>
-
     
-    <div class="fighting-area">
-        <div class="heroes characters">
-            <div id = "heroAttack"></div>
-            <!--<div id = "heroName"></div>
-            <div id = "heroStats"></div>-->
+        
+        <div class="fighting-area">
+            <div class="heroes characters">
+                <div class = "heroAttack"></div>
+                <!--<div id = "heroName"></div>
+                <div id = "heroStats"></div>-->
+            </div>
+            <div class="villains characters">
+                <div class = "villainAttack"></div>
+            </div>     
         </div>
-        <div class="villains characters">
-            <div id = "villainAttack"></div>
-        </div>     
-    </div>
-    <button id = "attackBtn">Attack</button>
-    <div class = "defeated" id = "dead"></div>
+        <button id = "attackBtn">Attack</button>
+        <div class="fight-progress">
+            <div class="heroHit"></div>
+            <div class="villainHit"></div>
+            <div class="result"></div>
+        </div>
+        
+        
+        <div class = "defeated" id = "dead"></div>
+    </div>    
 </body>
 </html>

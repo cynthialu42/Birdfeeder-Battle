@@ -1,6 +1,32 @@
+.content-wrapper{
+    width: 95%;
+    display: flex;
+    background: powderblue;
+    flex-wrap: wrap;
+    margin: auto;
+    padding: 2em 0em;
+}
+
+.card{
+    border: red solid 2px;
+    width: 6em;
+    height: 7em;
+    text-align: center;
+    padding: 1em 1em;
+    background: white;
+}
+
+.fight-progress{
+    width: 100%;
+    text-align: center;
+    background: palegoldenrod;
+   
+}
 .character-wrapper{
     display: flex;
     background: yellow;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .characters{
@@ -22,10 +48,18 @@
 .fighting-area{
     background: plum;
     display: flex;
+    width: 100%;
+    margin: 3em 0em;
 }
 
 .defeated{
     display: flex;
     background: palegreen;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.test{
+    background: blue;
 }
 

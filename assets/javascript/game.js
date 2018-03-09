@@ -41,7 +41,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "cat",
         "health" : 50,
-        "multiplier" : 20,
+        "multiplier" : 200,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -82,38 +82,61 @@ $(document).ready(function(){
     }
 
     function checkHealth(hero, villain){
-        if (isCharacterDead(hero) === true){
-            alert(`oh noes goodbye ${hero.name}`);
+        if (isCharacterDead(hero) && isCharacterDead(villain)){
+            $('.heroHit').empty();
+            $('.villainHit').empty();
+            $('.result').text(`Tie!`);
+        }
+        else if (isCharacterDead(hero) === true){
             heroObj = {};
             flag = false;
+            $('.heroHit').empty();
+            $('.villainHit').empty();
+            $('.result').text(`${hero.name} has fallen!`);
         }
-        if (isCharacterDead(villain) === true){
-            alert(`oh noes goodbye ${villain.name}`);
+        else if (isCharacterDead(villain) === true){
             villainObj = {};
             if (villain.name === "squirrel"){
                 $('#dead').append(squirrelDiv);
+                $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
+                squirrelDiv.css({"border-color":"grey", "background": "grey"});
                 squirrelFlag = false;
             }
             else if (villain.name === "cat"){
                 $('#dead').append(catDiv);
+                $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
+                catDiv.css({"border-color":"grey", "background": "grey"});
                 catFlag = false;
             }
             else{
                 $('#dead').append(owlDiv);
+                $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
+                owlDiv.css({"border-color":"grey", "background": "grey"});
                 owlFlag = false;
             }
             villainPlayer = true;
         }
+        else
+            return;
     }
 
+    function didHeroWin(){
+        console.log("here");
+        if (!squirrelFlag && !catFlag && !owlFlag){
+            $('.heroHit').empty();
+            $('.villainHit').empty();
+            $('.result').text(`You have won the battle!`);
+            return true;
+        }
+        else
+            return false;
+    }
     let heroHealth = '';
     let villainHealth = '';
     let heroPower = 0;
     function attack(hero, villain){
         let tempHeroPower = hero.power();
-        //console.log(`Temp hero power: ${tempHeroPower}`);
         heroPower += tempHeroPower;
-
         let heroName = hero.name;
         
         let villainPower = villain.power();
@@ -122,6 +145,8 @@ $(document).ready(function(){
         hero.health -= villainPower;
         villain.health -= heroPower;
 
+        $('.heroHit').text(`${heroName} attacks at ${heroPower}hp!`);
+        $('.villainHit').text(`${villainName} attacks at ${villainPower}hp!`);
         heroHealth = hero.health;
         villainHealth = villain.health;
 
@@ -130,7 +155,7 @@ $(document).ready(function(){
     
         // Check health
         checkHealth(hero, villain);
-
+        didHeroWin();
         //console.log(`full hero power: ${heroPower}`);
         //console.log(hero.health);
 
@@ -154,18 +179,21 @@ $(document).ready(function(){
 
 
     let charAttackDiv = $('#attackCharacters');
-    let heroAttackDiv = $('#heroAttack');
-    let villainAttackDiv = $('#villainAttack');
+    let heroAttackDiv = $('.heroAttack');
+    let villainAttackDiv = $('.villainAttack');
 
     //Functions 
     function heroAttacker(attacker){
         heroAttackDiv.append(attacker);
         //$('#heroName').append($('#cardinalName'));
         //$('#heroStats').append($('#cardinalStats'));
+        //$(".heroAttack").addClass("test");
+        attacker.css("border-color","green");
     }
 
     function villainAttacker(attacker){
         villainAttackDiv.append(attacker);
+        attacker.css("border-color","green");
     }
 
     //Events
@@ -176,6 +204,8 @@ $(document).ready(function(){
             heroAttacker(cardinalDiv);
             heroPlayer = false;
             heroObj = cardinal;
+            //$(".card").addClass("test");
+            //heroObj.addClass("test");
         }   
     });
     $('#bluejay').on('click', function(){
@@ -203,6 +233,9 @@ $(document).ready(function(){
             villainAttacker(squirrelDiv);
             villainPlayer = false;
             villainObj = squirrel;
+            $('.result').empty();
+            $('.heroHit').empty();
+            $('.villainHit').empty();
         }   
     });
     $('#cat').on('click', function(){
@@ -210,6 +243,9 @@ $(document).ready(function(){
             villainAttacker(catDiv);
             villainPlayer = false;
             villainObj = cat;
+            $('.result').empty();
+            $('.heroHit').empty();
+            $('.villainHit').empty();
         }   
     });
     $('#owl').on('click', function(){
@@ -217,6 +253,9 @@ $(document).ready(function(){
             villainAttacker(owlDiv);
             villainPlayer = false;
             villainObj = owl;
+            $('.result').empty();
+            $('.heroHit').empty();
+            $('.villainHit').empty();
         }    
     });
 
