@@ -1,5 +1,32 @@
 $(document).ready(function(){
     
+    // Variables
+    let heroHealth = '';
+    let villainHealth = '';
+    let heroPower = 0;
+
+    let heroObj = {};
+    let villainObj = {};
+    let cardinalDiv = $('#cardinal');
+    let bluejayDiv = $('#bluejay');
+    let woodpeckerDiv = $('#woodpecker');
+
+    let squirrelDiv = $('#squirrel');
+    let catDiv = $('#cat');
+    let owlDiv = $('#owl');
+
+
+    let charAttackDiv = $('#attackCharacters');
+    let heroAttackDiv = $('.heroAttack');
+    let villainAttackDiv = $('.villainAttack');
+
+    let heroPlayer = true;
+    let flag = true;
+
+    let villainPlayer = true;
+    let squirrelFlag = true;
+    let catFlag = true;
+    let owlFlag = true;
     // Hero objects
     var cardinal = {
         "name": "cardinal",
@@ -55,13 +82,6 @@ $(document).ready(function(){
             return Math.floor(Math.random() * this.multiplier);
         }
     };
-
-    function isCharacterDead(character){
-        if (character.health <= 0){
-            return true;
-        }
-        return false;
-    }
     
     function displayHeroName(name, health){
         if (name === "cardinal")
@@ -81,6 +101,13 @@ $(document).ready(function(){
             $('#owlStats').html(health);
     }
 
+    function isCharacterDead(character){
+        if (character.health <= 0){
+            return true;
+        }
+        return false;
+    }
+
     function checkHealth(hero, villain){
         if (isCharacterDead(hero) && isCharacterDead(villain)){
             $('.heroHit').empty();
@@ -95,6 +122,7 @@ $(document).ready(function(){
             $('.heroHit').empty();
             $('.villainHit').empty();
             $('.result').text(`${hero.name} has fallen!`);
+            $('.replay-btn').removeClass("hide");
         }
         else if (isCharacterDead(villain) === true){
             villainObj = {};
@@ -123,11 +151,11 @@ $(document).ready(function(){
     }
 
     function didHeroWin(hero){
-        console.log("here");
         if (!squirrelFlag && !catFlag && !owlFlag){
             $('.heroHit').empty();
             $('.villainHit').empty();
             $('.result').text(`You have won the battle!`);
+            $('.replay-btn').removeClass("hide");
             if (hero.name === "cardinal"){
                 $(".cardinal-fight-image").removeClass("show");
                 $(".cardinal-win-image").addClass("show");
@@ -146,9 +174,7 @@ $(document).ready(function(){
         else
             return false;
     }
-    let heroHealth = '';
-    let villainHealth = '';
-    let heroPower = 0;
+
     function attack(hero, villain){
         let tempHeroPower = hero.power();
         heroPower += tempHeroPower;
@@ -171,112 +197,105 @@ $(document).ready(function(){
         // Check health
         checkHealth(hero, villain);
         didHeroWin(hero);
-        //console.log(`full hero power: ${heroPower}`);
-        //console.log(hero.health);
 
     }
-    
-    $('#attackBtn').on('click', function(){
-        attack(heroObj, villainObj);
-    });
-    
 
-    //Variables
-    let heroObj = {};
-    let villainObj = {};
-    let cardinalDiv = $('#cardinal');
-    let bluejayDiv = $('#bluejay');
-    let woodpeckerDiv = $('#woodpecker');
+    function showAttackButton(hero, villain){
+        if ((jQuery.isEmptyObject(heroObj) === false) && (jQuery.isEmptyObject(villainObj) === false)){
+            $('.button-div').removeClass("hide");
+        }
+        return;
+    }
 
-    let squirrelDiv = $('#squirrel');
-    let catDiv = $('#cat');
-    let owlDiv = $('#owl');
-
-
-    let charAttackDiv = $('#attackCharacters');
-    let heroAttackDiv = $('.heroAttack');
-    let villainAttackDiv = $('.villainAttack');
-
-    //Functions 
     function heroAttacker(attacker){
         heroAttackDiv.append(attacker);
-        //$('#heroName').append($('#cardinalName'));
-        //$('#heroStats').append($('#cardinalStats'));
-        //$(".heroAttack").addClass("test");
         attacker.css("border-color","green");
+        showAttackButton(heroObj, villainObj);
     }
 
     function villainAttacker(attacker){
         villainAttackDiv.append(attacker);
         attacker.css("border-color","green");
+        showAttackButton(heroObj, villainObj);
     }
 
     //Events
-    let heroPlayer = true;
-    let flag = true;
     $('#cardinal').on('click', function(){
         if (heroPlayer && flag){
+            heroObj = cardinal;
             heroAttacker(cardinalDiv);
             heroPlayer = false;
-            heroObj = cardinal;
+
             $(".cardinal-image").addClass("hide");
             $(".cardinal-fight-image").addClass("show");
         }   
     });
+
     $('#bluejay').on('click', function(){
         if (heroPlayer && flag){
+            heroObj = bluejay;
             heroAttacker(bluejayDiv);
             heroPlayer = false;
-            heroObj = bluejay;
+            
             $(".blue-image").addClass("hide");
             $(".blue-fight-image").addClass("show");
         }   
     });
+
     $('#woodpecker').on('click', function(){
         if (heroPlayer && flag){
+            heroObj = woodpecker;
             heroAttacker(woodpeckerDiv);
             heroPlayer = false;
-            heroObj = woodpecker;
+            
             $(".wood-image").addClass("hide");
             $(".wood-fight-image").addClass("show");
         }    
     });
 
     // Villain Character Selection
-    let villainPlayer = true;
-    let squirrelFlag = true;
-    let catFlag = true;
-    let owlFlag = true;
     $('#squirrel').on('click', function(){
         if (villainPlayer && squirrelFlag){
+            villainObj = squirrel;
             villainAttacker(squirrelDiv);
             villainPlayer = false;
-            villainObj = squirrel;
+            
             $('.result').empty();
             $('.heroHit').empty();
             $('.villainHit').empty();
         }   
     });
+
     $('#cat').on('click', function(){
         if (villainPlayer && catFlag){
+            villainObj = cat;
             villainAttacker(catDiv);
             villainPlayer = false;
-            villainObj = cat;
+            
             $('.result').empty();
             $('.heroHit').empty();
             $('.villainHit').empty();
         }   
     });
+
     $('#owl').on('click', function(){
         if (villainPlayer && owlFlag){
+            villainObj = owl;
             villainAttacker(owlDiv);
             villainPlayer = false;
-            villainObj = owl;
+            
             $('.result').empty();
             $('.heroHit').empty();
             $('.villainHit').empty();
         }    
     });
 
+    $('#attackBtn').on('click', function(){
+        attack(heroObj, villainObj);
+    });
+
+    $('#replayBtn').on('click',function(){
+        location.reload();
+    });
 
 });

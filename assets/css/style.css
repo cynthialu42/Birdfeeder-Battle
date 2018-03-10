@@ -9,10 +9,10 @@
 
 .card{
     border: red solid 2px;
-    width: 6em;
-    height: 9em;
+    width: 7em;
+    height: 10em;
     text-align: center;
-    padding: 1em 1em;
+    padding: .5em .5em;
     background: paleturquoise;
 }
 
@@ -49,7 +49,7 @@
     background: plum;
     display: flex;
     width: 100%;
-    margin: 3em 0em;
+    margin: 2em 0em;
 }
 
 .defeated{
@@ -57,6 +57,7 @@
     background: palegreen;
     width: 100%;
     justify-content: space-around;
+    margin: .5em 0em;
 }
 
 .test{
@@ -67,7 +68,32 @@
     width: 100%;
 }
 
+.button-style{
+    background: white;
+    border: pink solid 2px;
+    font-family: fantasy;
+    font-size: 1.5em;
+    padding: .25em .5em;
+    margin: 0em 2em;
+    
+}
 
+.button-div{
+    display: flex;
+    background: peru;
+    width: 100%;
+}
+.space{
+    width: 100%;
+    background: green;
+}
+
+.attack-btn{
+    background: papayawhip;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
 .hide{
     display: none;
 }
@@ -75,3 +101,4 @@
 .show{
     display: block;
 }
+
