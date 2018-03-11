@@ -27,6 +27,7 @@ $(document).ready(function(){
     let squirrelFlag = true;
     let catFlag = true;
     let owlFlag = true;
+    
     // Hero objects
     var cardinal = {
         "name": "cardinal",
