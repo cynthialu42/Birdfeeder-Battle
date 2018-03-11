@@ -135,9 +135,18 @@ $(document).ready(function(){
                 $(".wood-fight-image").removeClass("show");
                 $(".wood-sad-image").addClass("show");
             }
+
             if (villain.name === "squirrel"){
                 $(".squirrel-fight-image").removeClass("show");
                 $(".squirrel-win-image").addClass("show");
+            }
+            else if (villain.name === "cat"){
+                $(".cat-fight-image").removeClass("show");
+                $(".cat-win-image").addClass("show");
+            }
+            else{
+                $(".owl-fight-image").removeClass("show");
+                $(".owl-win-image").addClass("show");
             }
         }
         else if (isCharacterDead(villain) === true){
@@ -147,20 +156,29 @@ $(document).ready(function(){
                 $(".squirrel-fight-image").removeClass("show");
                 $(".squirrel-sad-image").addClass("show");
                 $(".dead-squirrel-class").addClass("show");
+                $(".squirrel-fighting").removeClass("right-fighter");
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
                 //squirrelDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 squirrelFlag = false;
             }
             else if (villain.name === "cat"){
                 $('#dead-cat').append(catDiv);
+                $(".cat-fight-image").removeClass("show");
+                $(".cat-sad-image").addClass("show");
+                $(".dead-cat-class").addClass("show");
+                $(".cat-fighting").removeClass("right-fighter");
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                catDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
+                //catDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 catFlag = false;
             }
             else{
                 $('#dead-owl').append(owlDiv);
+                $(".owl-fight-image").removeClass("show");
+                $(".owl-sad-image").addClass("show");
+                $(".dead-owl-class").addClass("show");
+                $(".owl-fighting").removeClass("right-fighter");
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                owlDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
+                //owlDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 owlFlag = false;
             }
             villainPlayer = true;
@@ -298,6 +316,10 @@ $(document).ready(function(){
             villainObj = cat;
             villainAttacker(catDiv);
             villainPlayer = false;
+
+            $(".cat-image").addClass("hide");
+            $(".cat-fight-image").addClass("show");
+            $(".cat-fighting").addClass("right-fighter");
             
             $('.result').empty();
             $('.heroHit').empty();
@@ -310,6 +332,10 @@ $(document).ready(function(){
             villainObj = owl;
             villainAttacker(owlDiv);
             villainPlayer = false;
+
+            $(".owl-image").addClass("hide");
+            $(".owl-fight-image").addClass("show");
+            $(".owl-fighting").addClass("right-fighter");
             
             $('.result').empty();
             $('.heroHit').empty();
