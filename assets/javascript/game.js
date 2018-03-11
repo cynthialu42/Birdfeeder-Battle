@@ -68,7 +68,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "cat",
         "health" : 50,
-        "multiplier" : 20,
+        "multiplier" : 2000,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -123,6 +123,10 @@ $(document).ready(function(){
             $('.villainHit').empty();
             $('.result').text(`${hero.name} has fallen!`);
             $('.replay-btn').removeClass("hide");
+            if (hero.name === "cardinal"){
+                $(".cardinal-fight-image").removeClass("show");
+                $(".cardinal-sad-image").addClass("show");
+            }
         }
         else if (isCharacterDead(villain) === true){
             villainObj = {};
