@@ -14,18 +14,21 @@
     <div class="content-wrapper">
         <div class="character-wrapper">
             <div class="heroes characters">
-                <div class = "card" id = "cardinal">
-                    <img class = "image cardinal-image" src="./assets/images/cardinal-still.gif" onmouseover="this.src='./assets/images/cardinal.gif'"
+                <div class = "card extra" id = "cardinal">
+                    <img class = "image cardinal-image" src="./assets/images/cardinal-still.gif" 
+                    onmouseover="this.src='./assets/images/cardinal.gif'"
                     onmouseout="this.src='./assets/images/cardinal-still.gif'" alt="">
                     <img class = "hide image cardinal-fight-image" src="./assets/images/cardinal-peck.gif" alt="">
                     <img class = "hide image cardinal-win-image" src="./assets/images/cardinal-celebrate.gif" alt="">
                     <div>Cardinal</div>
                     <div>HP: <span id = "cardinalStats">200</span></div>
                 </div>
-                <div class = "card" id = "bluejay">
-                    <img class = "image blue-image" src="./assets/images/bluejay.gif" alt="">
+                <div class = "card blue" id = "bluejay">
+                    <img class = "image blue-image" src="./assets/images/bluejay-still.gif"
+                    onmouseover="this.src='./assets/images/bluejay.gif'"
+                    onmouseout="this.src='./assets/images/bluejay-still.gif'" alt="">
                     <img class = "hide image blue-fight-image" src="./assets/images/bluejay-peck.gif" alt="">
-                    <img class = "hide image blue-win-image" src="./assets/images/test6.jpeg" alt="">
+                    <img class = "hide image blue-win-image" src="./assets/images/bluejay-celebrate.gif" alt="">
                     <div>Blue Jay</div>
                     <div>HP: <span id = "bluejayStats">300</span></div>
                 </div>
@@ -38,14 +41,17 @@
                 </div>
             </div>
             <div class="villains characters">
+                <div id = "dead-squirrel"></div>
                 <div class = "card" id = "squirrel">
                     <div>Squirrel</div>
                     <div>HP: <span id = "squirrelStats">50</span></div>
                 </div>
+                <div id = "dead-cat"></div>
                 <div class = "card" id = "cat">
                     <div>Cat</div>
                     <div>HP: <span id = "catStats">50</span></div>
                 </div>
+                <div id = "dead-owl"></div>
                 <div class = "card" id = "owl">
                     <div>Owl</div>
                     <div>HP: <span id = "owlStats">45</span></div>
@@ -55,12 +61,20 @@
     
         
         <div class="fighting-area">
+            
             <div class="heroes characters">
                 <div class = "heroAttack"></div>
                 <!--<div id = "heroName"></div>
                 <div id = "heroStats"></div>-->
             </div>
             <div class="fight-progress">
+                <div class="hide button-div">
+                    <div class = "attack-btn">
+                        <button class = "button-style" id = "attackBtn">Attack</button>
+                        <button class = "hide replay-btn button-style" id = "replayBtn">Play Again</button>
+                    </div>
+                    
+                </div>
                 <div class="heroHit"></div>
                 <div class="villainHit"></div>
                 <div class="result"></div>
@@ -69,13 +83,13 @@
                 <div class = "villainAttack"></div>
             </div>     
         </div>
-        <div class="hide button-div">
+        <!--<div class="hide button-div">
             <div class = "attack-btn">
                 <button class = "button-style" id = "attackBtn">Attack</button>
                 <button class = "hide replay-btn button-style" id = "replayBtn">Play Again</button>
             </div>
             
-        </div>
+        </div>-->
         
         
         

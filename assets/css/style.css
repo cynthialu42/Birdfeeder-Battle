@@ -10,10 +10,20 @@
 .card{
     border: red solid 2px;
     width: 7em;
-    height: 10em;
+    height: 9em;
+    text-align: center;
+    padding: 0em .5em .5em .5em;
+    background: paleturquoise;
+}
+
+.test{
+    border: purple solid 2px;
+    width: 80%;
+    height: auto;
     text-align: center;
     padding: .5em .5em;
     background: paleturquoise;
+    float: right;
 }
 
 

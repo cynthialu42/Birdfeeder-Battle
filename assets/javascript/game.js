@@ -127,21 +127,21 @@ $(document).ready(function(){
         else if (isCharacterDead(villain) === true){
             villainObj = {};
             if (villain.name === "squirrel"){
-                $('#dead').append(squirrelDiv);
+                $('#dead-squirrel').append(squirrelDiv);
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                squirrelDiv.css({"border-color":"grey", "background": "grey"});
+                squirrelDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 squirrelFlag = false;
             }
             else if (villain.name === "cat"){
-                $('#dead').append(catDiv);
+                $('#dead-cat').append(catDiv);
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                catDiv.css({"border-color":"grey", "background": "grey"});
+                catDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 catFlag = false;
             }
             else{
-                $('#dead').append(owlDiv);
+                $('#dead-owl').append(owlDiv);
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                owlDiv.css({"border-color":"grey", "background": "grey"});
+                owlDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 owlFlag = false;
             }
             villainPlayer = true;
@@ -228,6 +228,7 @@ $(document).ready(function(){
 
             $(".cardinal-image").addClass("hide");
             $(".cardinal-fight-image").addClass("show");
+            $(".extra").addClass("test");
         }   
     });
 
@@ -239,6 +240,7 @@ $(document).ready(function(){
             
             $(".blue-image").addClass("hide");
             $(".blue-fight-image").addClass("show");
+            $(".blue").addClass("test");
         }   
     });
 
