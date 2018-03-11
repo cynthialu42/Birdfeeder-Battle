@@ -16,6 +16,7 @@
     background: paleturquoise;
 }
 
+
 .fight-progress{
     width: 50%;
     text-align: center;
@@ -60,9 +61,6 @@
     margin: .5em 0em;
 }
 
-.test{
-    background: blue;
-}
 
 .image{
     width: 100%;
