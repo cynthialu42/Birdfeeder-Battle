@@ -68,7 +68,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "cat",
         "health" : 50,
-        "multiplier" : 2000,
+        "multiplier" : 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -126,6 +126,14 @@ $(document).ready(function(){
             if (hero.name === "cardinal"){
                 $(".cardinal-fight-image").removeClass("show");
                 $(".cardinal-sad-image").addClass("show");
+            }
+            else if (hero.name === "blue jay"){
+                $(".blue-fight-image").removeClass("show");
+                $(".blue-sad-image").addClass("show");
+            }
+            else{
+                $(".wood-fight-image").removeClass("show");
+                $(".wood-sad-image").addClass("show");
             }
         }
         else if (isCharacterDead(villain) === true){
@@ -232,7 +240,7 @@ $(document).ready(function(){
 
             $(".cardinal-image").addClass("hide");
             $(".cardinal-fight-image").addClass("show");
-            $(".extra").addClass("test");
+            $(".cardinal-fighting").addClass("left-fighter");
         }   
     });
 
@@ -244,7 +252,7 @@ $(document).ready(function(){
             
             $(".blue-image").addClass("hide");
             $(".blue-fight-image").addClass("show");
-            $(".blue").addClass("test");
+            $(".bluejay-fighting").addClass("left-fighter");
         }   
     });
 
@@ -256,6 +264,8 @@ $(document).ready(function(){
             
             $(".wood-image").addClass("hide");
             $(".wood-fight-image").addClass("show");
+            $(".woodpecker-fighting").addClass("left-fighter");
+
         }    
     });
 
