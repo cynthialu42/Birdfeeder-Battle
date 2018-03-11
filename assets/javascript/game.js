@@ -30,7 +30,7 @@ $(document).ready(function(){
     // Hero objects
     var cardinal = {
         "name": "cardinal",
-        "health": 200,
+        "health": 2,
         "multiplier": 10,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
@@ -135,13 +135,20 @@ $(document).ready(function(){
                 $(".wood-fight-image").removeClass("show");
                 $(".wood-sad-image").addClass("show");
             }
+            if (villain.name === "squirrel"){
+                $(".squirrel-fight-image").removeClass("show");
+                $(".squirrel-win-image").addClass("show");
+            }
         }
         else if (isCharacterDead(villain) === true){
             villainObj = {};
             if (villain.name === "squirrel"){
                 $('#dead-squirrel').append(squirrelDiv);
+                $(".squirrel-fight-image").removeClass("show");
+                $(".squirrel-sad-image").addClass("show");
+                $(".dead-squirrel-class").addClass("show");
                 $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                squirrelDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
+                //squirrelDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
                 squirrelFlag = false;
             }
             else if (villain.name === "cat"){
@@ -227,7 +234,7 @@ $(document).ready(function(){
 
     function villainAttacker(attacker){
         villainAttackDiv.append(attacker);
-        attacker.css("border-color","green");
+        //attacker.css({"border-color":"green","padding":".5em .5em"});
         showAttackButton(heroObj, villainObj);
     }
 
@@ -275,6 +282,10 @@ $(document).ready(function(){
             villainObj = squirrel;
             villainAttacker(squirrelDiv);
             villainPlayer = false;
+
+            $(".squirrel-image").addClass("hide");
+            $(".squirrel-fight-image").addClass("show");
+            $(".squirrel-fighting").addClass("right-fighter");
             
             $('.result').empty();
             $('.heroHit').empty();
