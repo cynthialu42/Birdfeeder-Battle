@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/javascript/game.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
 </head>
-<body>
+<body class = "background-img">
+    <div class="title">Birdfeeder Battle!</div>
     <div class="content-wrapper">
         <div class="character-wrapper">
             <div class="heroes characters">
+                <div class = "subtitles" >Heroes</div>
                 <div class = "card cardinal-fighting" id = "cardinal">
                     <img class = "image cardinal-image" src="./assets/images/cardinal-still.gif" 
                     onmouseover="this.src='./assets/images/cardinal-bounce.gif'"
@@ -21,8 +25,8 @@
                     <img class = "hide image cardinal-fight-image" src="./assets/images/cardinal-peck.gif" alt="">
                     <img class = "hide image cardinal-win-image" src="./assets/images/cardinal-celebrate.gif" alt="">
                     <img class = "hide image cardinal-sad-image" src="./assets/images/cardinal-sad.gif" alt="">
-                    <div>Cardinal</div>
-                    <div>HP: <span id = "cardinalStats">200</span></div>
+                    <div class= "body-text">Cardinal</div>
+                    <div class= "body-text">HP: <span id = "cardinalStats">200</span></div>
                 </div>
                 <div class = "card bluejay-fighting" id = "bluejay">
                     <img class = "image blue-image" src="./assets/images/bluejay-still.gif"
@@ -31,8 +35,8 @@
                     <img class = "hide image blue-fight-image" src="./assets/images/bluejay-peck.gif" alt="">
                     <img class = "hide image blue-win-image" src="./assets/images/bluejay-celebrate.gif" alt="">
                     <img class = "hide image blue-sad-image" src="./assets/images/bluejay-sad.gif" alt="">
-                    <div>Blue Jay</div>
-                    <div>HP: <span id = "bluejayStats">300</span></div>
+                    <div class= "body-text">Blue Jay</div>
+                    <div class= "body-text">HP: <span id = "bluejayStats">300</span></div>
                 </div>
                 <div class = "card woodpecker-fighting" id = "woodpecker">
                     <img class = "image wood-image" src="./assets/images/woodpecker-still.gif"
@@ -41,11 +45,12 @@
                     <img class = "hide image wood-fight-image" src="./assets/images/woodpecker-fighting.gif" alt="">
                     <img class = "hide image wood-win-image" src="./assets/images/woodpecker-celebrate.gif" alt="">
                     <img class = "hide image wood-sad-image" src="./assets/images/woodpecker-sad.gif" alt="">
-                    <div>Woodpecker</div>
-                    <div>HP: <span id = "woodpeckerStats">350</span></div>
+                    <div class= "body-text">Woodpecker</div>
+                    <div class= "body-text">HP: <span id = "woodpeckerStats">350</span></div>
                 </div>
             </div>
             <div class="villains characters">
+                <div class = "subtitles">Villains</div>
                 <div class = "hide dead-squirrel-class" id = "dead-squirrel"></div>
                 <div class = "card squirrel-fighting" id = "squirrel">
                     <img class = "image squirrel-image" src="./assets/images/squirrel-still.gif"
@@ -54,8 +59,8 @@
                     <img class = "hide image squirrel-fight-image" src="./assets/images/squirrel-fight.gif" alt="">
                     <img class = "hide image squirrel-win-image" src="./assets/images/squirrel-win.gif" alt="">
                     <img class = "hide image squirrel-sad-image" src="./assets/images/squirrel-lose.gif" alt="">
-                    <div>Squirrel</div>
-                    <div>HP: <span id = "squirrelStats">50</span></div>
+                    <div class= "body-text">Squirrel</div>
+                    <div class= "body-text">HP: <span id = "squirrelStats">50</span></div>
                 </div>
                 <div class = "hide dead-cat-class" id = "dead-cat"></div>
                 <div class = "card cat-fighting" id = "cat">
@@ -65,8 +70,8 @@
                     <img class = "hide image cat-fight-image" src="./assets/images/cat-fight.gif" alt="">
                     <img class = "hide image cat-win-image" src="./assets/images/cat-win.gif" alt="">
                     <img class = "hide image cat-sad-image" src="./assets/images/cat-lose.gif" alt="">
-                    <div>Cat</div>
-                    <div>HP: <span id = "catStats">50</span></div>
+                    <div class= "body-text">Cat</div>
+                    <div class= "body-text">HP: <span id = "catStats">50</span></div>
                 </div>
                 <div class = "hide dead-owl-class" id = "dead-owl"></div>
                 <div class = "card owl-fighting" id = "owl">
@@ -76,8 +81,8 @@
                     <img class = "hide image owl-fight-image" src="./assets/images/owl-fight.gif" alt="">
                     <img class = "hide image owl-win-image" src="./assets/images/owl-win.gif" alt="">
                     <img class = "hide image owl-sad-image" src="./assets/images/owl-lose.gif" alt="">
-                    <div>Owl</div>
-                    <div>HP: <span id = "owlStats">45</span></div>
+                    <div class= "body-text">Owl</div>
+                    <div class= "body-text">HP: <span id = "owlStats">45</span></div>
                 </div>
             </div>         
         </div>
@@ -93,14 +98,14 @@
             <div class="fight-progress">
                 <div class="hide button-div">
                     <div class = "attack-btn">
-                        <button class = "button-style" id = "attackBtn">Attack</button>
+                        <button class = "button-style" id = "attackBtn">Attack!</button>
                         <button class = "hide replay-btn button-style" id = "replayBtn">Play Again</button>
                     </div>
                     
                 </div>
-                <div class="heroHit"></div>
-                <div class="villainHit"></div>
-                <div class="result"></div>
+                <div class="heroHit body-text large-font">Choose a hero and a villain.</div>
+                <div class="villainHit body-text large-font">Then get ready to defend the birdfeeder!</div>
+                <div class="result body-text large-font"></div>
             </div>
             <div class="villains characters">
                 <div class = "villainAttack"></div>
@@ -118,5 +123,7 @@
         
         <div class = "defeated" id = "dead"></div>
     </div>    
+  
+    
 </body>
 </html>

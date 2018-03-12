@@ -1,80 +1,109 @@
+
+.background-img{
+    background-image: url(../images/test-background.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: green;
+}
+.title{
+    font-family: 'Press Start 2P', cursive;
+    padding: 1em 0em .25em 0em;
+    font-size: 2em;
+    text-align: center;
+
+}
+
+
+.body-text{
+    
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+}
 .content-wrapper{
     width: 95%;
     display: flex;
-    background: powderblue;
+
     flex-wrap: wrap;
     margin: auto;
     padding: 2em 0em;
+
 }
 
 .card{
-    border: red solid 2px;
+
     width: 7em;
-    height: 9em;
+    height: 10em;
     text-align: center;
     padding: 0em .5em .5em .5em;
-    background: paleturquoise;
+
 }
 
 .left-fighter{
-    border: orange solid 2px;
-    width: 80%;
+
+    width: 100%;
     height: auto;
     text-align: center;
     padding: .5em .5em;
-    background: paleturquoise;
+
     float: right;
 }
 
 .right-fighter{
-    border: orange solid 2px;
-    width: 80%;
+
+    width: 100%;
     height: auto;
     text-align: center;
     padding: .5em .5em;
-    background: paleturquoise;
+
     float: left;
 }
 
 .fight-progress{
     width: 50%;
     text-align: center;
-    background: palegoldenrod;
+
    
 }
 .character-wrapper{
     display: flex;
-    background: yellow;
+
     justify-content: space-between;
     width: 100%;
 }
 
 .characters{
-    background: green;
+
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
+    flex-wrap: wrap;
 }
-
+.subtitles{
+    background: white;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    font-size: 1.2em;
+}
 .villains{
-    background: pink;
+
 }
 
 .heroes{
-    background: palevioletred;
+ 
 }
 
 .fighting-area{
-    background: plum;
+
     display: flex;
     width: 100%;
-    margin: 2em 0em;
+    margin: 1em 0em;
 }
 
 .defeated{
     display: flex;
-    background: palegreen;
+
     width: 100%;
     justify-content: space-around;
     margin: .5em 0em;
@@ -88,7 +117,7 @@
 .button-style{
     background: white;
     border: pink solid 2px;
-    font-family: fantasy;
+    font-family: 'Press Start 2P', cursive;
     font-size: 1.5em;
     padding: .25em .5em;
     margin: 0em 2em;
@@ -97,16 +126,16 @@
 
 .button-div{
     display: flex;
-    background: peru;
+
     width: 100%;
 }
 .space{
     width: 100%;
-    background: green;
+
 }
 
 .attack-btn{
-    background: papayawhip;
+
     width: 100%;
     display: flex;
     justify-content: center;
@@ -117,5 +146,8 @@
 
 .show{
     display: block;
+}
+.large-font{
+    font-size: 2em;
 }
 
