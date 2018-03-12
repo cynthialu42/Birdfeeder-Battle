@@ -1,8 +1,8 @@
 
 .background-img{
-    background-image: url(../images/test-background.gif);
+    background-image: url(../images/bird-feeder-background.png);
     background-size: cover;
-    background-repeat: no-repeat;
+
     background-color: green;
 }
 .title{
@@ -10,6 +10,8 @@
     padding: 1em 0em .25em 0em;
     font-size: 2em;
     text-align: center;
+    color: rgb(6, 5, 70);
+    text-shadow: 2px 2px white;
 
 }
 
@@ -18,6 +20,9 @@
     
     font-family: 'VT323', monospace;
     font-size: 1.5em;
+    color: black;
+    background: white;
+    border: rgb(6, 5, 70) solid 1px;
 }
 .content-wrapper{
     width: 95%;
@@ -40,7 +45,7 @@
 
 .left-fighter{
 
-    width: 100%;
+    width: 70%;
     height: auto;
     text-align: center;
     padding: .5em .5em;
@@ -50,7 +55,7 @@
 
 .right-fighter{
 
-    width: 100%;
+    width: 70%;
     height: auto;
     text-align: center;
     padding: .5em .5em;
@@ -59,9 +64,9 @@
 }
 
 .fight-progress{
-    width: 50%;
+    width: 100%;
     text-align: center;
-
+    margin: auto;
    
 }
 .character-wrapper{
@@ -70,9 +75,12 @@
     justify-content: space-between;
     width: 100%;
 }
-
+.test{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
 .characters{
-
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -80,11 +88,14 @@
     flex-wrap: wrap;
 }
 .subtitles{
-    background: white;
     width: 100%;
     font-family: 'Press Start 2P', cursive;
     text-align: center;
     font-size: 1.2em;
+    background: rgb(6, 5, 70);
+    padding: 5px 5px;
+    margin: 0em 2em;
+    color: white;
 }
 .villains{
 
@@ -116,7 +127,7 @@
 
 .button-style{
     background: white;
-    border: pink solid 2px;
+    border: rgb(6, 5, 70) dashed 2px;
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5em;
     padding: .25em .5em;
@@ -126,8 +137,8 @@
 
 .button-div{
     display: flex;
-
     width: 100%;
+    margin-bottom: 1em;
 }
 .space{
     width: 100%;
@@ -139,6 +150,7 @@
     width: 100%;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 .hide{
     display: none;
@@ -149,5 +161,10 @@
 }
 .large-font{
     font-size: 2em;
+    background: none;
+    border: none;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px rgb(6, 5, 70);
+    line-height: 1.5em;
 }
 

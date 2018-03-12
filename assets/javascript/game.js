@@ -27,7 +27,7 @@ $(document).ready(function(){
     let squirrelFlag = true;
     let catFlag = true;
     let owlFlag = true;
-    
+
     // Hero objects
     var cardinal = {
         "name": "cardinal",
@@ -120,10 +120,11 @@ $(document).ready(function(){
         else if (isCharacterDead(hero) === true){
             heroObj = {};
             flag = false;
-            $('.heroHit').empty();
-            $('.villainHit').empty();
+            
             $('.result').text(`${hero.name} has fallen!`);
             $('.replay-btn').removeClass("hide");
+            $('.peck-btn').addClass("hide");
+            
             if (hero.name === "cardinal"){
                 $(".cardinal-fight-image").removeClass("show");
                 $(".cardinal-sad-image").addClass("show");
@@ -149,6 +150,8 @@ $(document).ready(function(){
                 $(".owl-fight-image").removeClass("show");
                 $(".owl-win-image").addClass("show");
             }
+            $('.heroHit').empty();
+            $('.villainHit').empty();
         }
         else if (isCharacterDead(villain) === true){
             villainObj = {};
@@ -194,6 +197,7 @@ $(document).ready(function(){
             $('.villainHit').empty();
             $('.result').text(`You have won the battle!`);
             $('.replay-btn').removeClass("hide");
+            $('.peck-btn').addClass("hide");
             if (hero.name === "cardinal"){
                 $(".cardinal-fight-image").removeClass("show");
                 $(".cardinal-win-image").addClass("show");
