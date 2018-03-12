@@ -20,9 +20,11 @@
     
     font-family: 'VT323', monospace;
     font-size: 1.5em;
-    color: black;
-    background: white;
+    color: white;
+    background: rgb(6, 5, 70);
     border: rgb(6, 5, 70) solid 1px;
+    padding: 2px 2px;
+    
 }
 .content-wrapper{
     width: 95%;
@@ -67,6 +69,7 @@
     width: 100%;
     text-align: center;
     margin: auto;
+
    
 }
 .character-wrapper{
@@ -110,6 +113,7 @@
     display: flex;
     width: 100%;
     margin: 1em 0em;
+
 }
 
 .defeated{
@@ -166,5 +170,6 @@
     color: rgb(255, 255, 255);
     text-shadow: 3px 3px rgb(6, 5, 70);
     line-height: 1.5em;
+
 }
 
