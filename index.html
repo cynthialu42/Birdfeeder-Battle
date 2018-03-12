@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="./assets/javascript/game.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|VT323" rel="stylesheet">
@@ -16,7 +15,7 @@
     <div class="title">Birdhouse Battle!</div>
     <div class="content-wrapper">
         <div class="character-wrapper">
-            <div class="heroes characters">
+            <div class="characters">
                 <div class = "subtitles" >Heroes</div>
                 <div class = "card cardinal-fighting" id = "cardinal">
                     <img class = "image cardinal-image" src="./assets/images/cardinal-still.gif" 
@@ -49,7 +48,7 @@
                     <div class= "body-text">HP: <span id = "woodpeckerStats">350</span></div>
                 </div>
             </div>
-            <div class="villains characters">
+            <div class="characters">
                 <div class = "subtitles">Villains</div>
                 <div class = "hide dead-squirrel-class" id = "dead-squirrel"></div>
                 <div class = "card squirrel-fighting" id = "squirrel">
@@ -90,10 +89,8 @@
         
         <div class="fighting-area">
             
-            <div class="heroes test">
+            <div class="fighting-spot">
                 <div class = "heroAttack"></div>
-                <!--<div id = "heroName"></div>
-                <div id = "heroStats"></div>-->
             </div>
             <div class="fight-progress">
                 <div class="hide button-div">
@@ -106,24 +103,12 @@
                 <div class="villainHit body-text large-font">...</div>
                 <div class="result body-text large-font">Then get ready to defend the birdfeeder!</div>
             </div>
-
-            <div class="villains test">
+            <div class="fighting-spot">
                 <div class = "villainAttack"></div>
             </div>     
         </div>
-        <!--<div class="hide button-div">
-            <div class = "attack-btn">
-                <button class = "button-style" id = "attackBtn">Attack</button>
-                <button class = "hide replay-btn button-style" id = "replayBtn">Play Again</button>
-            </div>
-            
-        </div>-->
-        
-        
-        
-        <div class = "defeated" id = "dead"></div>
     </div>    
-  
+  <footer class="footer">© Cynthia Lu 2018</footer>
     
 </body>
 </html>

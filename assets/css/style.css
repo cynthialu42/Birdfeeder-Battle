@@ -1,8 +1,6 @@
-
 .background-img{
     background-image: url(../images/bird-feeder-background-lighter.png);
     background-size: cover;
-
     background-color: green;
 }
 .title{
@@ -15,17 +13,6 @@
 
 }
 
-
-.body-text{
-    
-    font-family: 'VT323', monospace;
-    font-size: 1.5em;
-    color: white;
-    background: rgb(6, 5, 70);
-    border: rgb(6, 5, 70) solid 1px;
-    padding: 2px 2px;
-    
-}
 .content-wrapper{
     width: 95%;
     display: flex;
@@ -36,53 +23,13 @@
 
 }
 
-.card{
-
-    width: 7em;
-    height: 10em;
-    text-align: center;
-    padding: 0em .5em .5em .5em;
-
-}
-
-.left-fighter{
-
-    width: 70%;
-    height: auto;
-    text-align: center;
-    padding: .5em .5em;
-
-    float: right;
-}
-
-.right-fighter{
-
-    width: 70%;
-    height: auto;
-    text-align: center;
-    padding: .5em .5em;
-
-    float: left;
-}
-
-.fight-progress{
-    width: 100%;
-    text-align: center;
-    margin: auto;
-
-   
-}
 .character-wrapper{
     display: flex;
 
     justify-content: space-between;
     width: 100%;
 }
-.test{
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
-}
+
 .characters{
     display: flex;
     justify-content: space-around;
@@ -90,6 +37,7 @@
     width: 100%;
     flex-wrap: wrap;
 }
+
 .subtitles{
     width: 100%;
     font-family: 'Press Start 2P', cursive;
@@ -100,33 +48,67 @@
     margin: 0em 2em;
     color: white;
 }
-.villains{
 
+.body-text{ 
+    font-family: 'VT323', monospace;
+    font-size: 1.5em;
+    color: white;
+    background: rgb(6, 5, 70);
+    border: rgb(6, 5, 70) solid 1px;
+    padding: 2px 2px;
+    
 }
 
-.heroes{
- 
+.card{
+    width: 7em;
+    height: 10em;
+    text-align: center;
+    padding: 0em .5em .5em .5em;
+
 }
 
 .fighting-area{
-
     display: flex;
     width: 100%;
     margin: 1em 0em;
-
 }
 
-.defeated{
-    display: flex;
+.left-fighter{
+    width: 70%;
+    height: auto;
+    text-align: center;
+    padding: .5em .5em;
+    float: right;
+}
 
+.right-fighter{
+    width: 70%;
+    height: auto;
+    text-align: center;
+    padding: .5em .5em;
+    float: left;
+}
+
+.fight-progress{
     width: 100%;
-    justify-content: space-around;
-    margin: .5em 0em;
+    text-align: center;
+    margin: auto;
 }
 
+.fighting-spot{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
 
 .image{
     width: 100%;
+}
+
+.button-div{
+    display: flex;
+    width: 100%;
+    margin-bottom: 1em;
 }
 
 .button-style{
@@ -135,34 +117,16 @@
     font-family: 'Press Start 2P', cursive;
     font-size: 1.5em;
     padding: .25em .5em;
-    margin: 0em 2em;
-    
-}
-
-.button-div{
-    display: flex;
-    width: 100%;
-    margin-bottom: 1em;
-}
-.space{
-    width: 100%;
-
+    margin: 0em 2em; 
 }
 
 .attack-btn{
-
     width: 100%;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
-.hide{
-    display: none;
-}
 
-.show{
-    display: block;
-}
 .large-font{
     font-size: 2em;
     background: none;
@@ -173,3 +137,25 @@
 
 }
 
+.footer{
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 3px 3px rgb(6, 5, 70);
+    font-family: 'Press Start 2P', cursive;
+    bottom: 0;
+    position: fixed;
+    font-size: .75em;
+    padding: 5px 0px;
+}
+.space{
+    width: 100%;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
+}

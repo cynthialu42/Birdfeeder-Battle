@@ -113,7 +113,68 @@ $(document).ready(function(){
         return false;
     }
 
-   
+    // Parameters: hero and villain objects
+    // Change display if hero loses
+    function heroIsDead(hero, villain){
+        if (hero.name === "Cardinal"){
+            $(".cardinal-fight-image").removeClass("show");
+            $(".cardinal-sad-image").addClass("show");
+        }
+        else if (hero.name === "Blue Jay"){
+            $(".blue-fight-image").removeClass("show");
+            $(".blue-sad-image").addClass("show");
+        }
+        else{
+            $(".wood-fight-image").removeClass("show");
+            $(".wood-sad-image").addClass("show");
+        }
+
+        if (villain.name === "Squirrel"){
+            $(".squirrel-fight-image").removeClass("show");
+            $(".squirrel-win-image").addClass("show");
+        }
+        else if (villain.name === "Cat"){
+            $(".cat-fight-image").removeClass("show");
+            $(".cat-win-image").addClass("show");
+        }
+        else{
+            $(".owl-fight-image").removeClass("show");
+            $(".owl-win-image").addClass("show");
+        }
+   }
+
+   // Parameters: hero and villain objects
+   // Change display if villain loses
+   function villainIsDead(hero, villain){
+        if (villain.name === "Squirrel"){
+            $('#dead-squirrel').append(squirrelDiv);
+            $(".squirrel-fight-image").removeClass("show");
+            $(".squirrel-sad-image").addClass("show");
+            $(".dead-squirrel-class").addClass("show");
+            $(".squirrel-fighting").removeClass("right-fighter");
+            $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
+            squirrelFlag = false;
+        }
+        else if (villain.name === "Cat"){
+            $('#dead-cat').append(catDiv);
+            $(".cat-fight-image").removeClass("show");
+            $(".cat-sad-image").addClass("show");
+            $(".dead-cat-class").addClass("show");
+            $(".cat-fighting").removeClass("right-fighter");
+            $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
+            catFlag = false;
+        }
+        else{
+            $('#dead-owl').append(owlDiv);
+            $(".owl-fight-image").removeClass("show");
+            $(".owl-sad-image").addClass("show");
+            $(".dead-owl-class").addClass("show");
+            $(".owl-fighting").removeClass("right-fighter");
+            $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
+            owlFlag = false;
+        }
+   }
+
     // Parameters: hero and villain object
     function checkHealth(hero, villain){
         // Check for tie
@@ -135,66 +196,18 @@ $(document).ready(function(){
             $('.replay-btn').removeClass("hide");
             $('.peck-btn').addClass("hide");
             
-            if (hero.name === "Cardinal"){
-                $(".cardinal-fight-image").removeClass("show");
-                $(".cardinal-sad-image").addClass("show");
-            }
-            else if (hero.name === "Blue Jay"){
-                $(".blue-fight-image").removeClass("show");
-                $(".blue-sad-image").addClass("show");
-            }
-            else{
-                $(".wood-fight-image").removeClass("show");
-                $(".wood-sad-image").addClass("show");
-            }
+            // Change images for hero losing
+            heroIsDead(hero, villain);
 
-            if (villain.name === "Squirrel"){
-                $(".squirrel-fight-image").removeClass("show");
-                $(".squirrel-win-image").addClass("show");
-            }
-            else if (villain.name === "Cat"){
-                $(".cat-fight-image").removeClass("show");
-                $(".cat-win-image").addClass("show");
-            }
-            else{
-                $(".owl-fight-image").removeClass("show");
-                $(".owl-win-image").addClass("show");
-            }
             $('.heroHit').empty();
             $('.villainHit').empty();
         }
         else if (isCharacterDead(villain) === true){
             villainObj = {};
-            if (villain.name === "Squirrel"){
-                $('#dead-squirrel').append(squirrelDiv);
-                $(".squirrel-fight-image").removeClass("show");
-                $(".squirrel-sad-image").addClass("show");
-                $(".dead-squirrel-class").addClass("show");
-                $(".squirrel-fighting").removeClass("right-fighter");
-                $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                //squirrelDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
-                squirrelFlag = false;
-            }
-            else if (villain.name === "Cat"){
-                $('#dead-cat').append(catDiv);
-                $(".cat-fight-image").removeClass("show");
-                $(".cat-sad-image").addClass("show");
-                $(".dead-cat-class").addClass("show");
-                $(".cat-fighting").removeClass("right-fighter");
-                $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                //catDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
-                catFlag = false;
-            }
-            else{
-                $('#dead-owl').append(owlDiv);
-                $(".owl-fight-image").removeClass("show");
-                $(".owl-sad-image").addClass("show");
-                $(".dead-owl-class").addClass("show");
-                $(".owl-fighting").removeClass("right-fighter");
-                $('.result').text(`${villain.name} has been defeated! Choose another opponent`);
-                //owlDiv.css({"border-color":"grey", "background": "grey", "opacity": ".65"});
-                owlFlag = false;
-            }
+
+            // Move images if villain loses
+            villainIsDead(hero, villain);
+
             villainPlayer = true;
         }
         else
@@ -402,7 +415,5 @@ $(document).ready(function(){
     $('#replayBtn').on('click',function(){
         location.reload();
     });
-
-
     
 });
