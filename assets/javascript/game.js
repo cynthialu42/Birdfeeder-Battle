@@ -32,7 +32,7 @@ $(document).ready(function(){
     var cardinal = {
         "name": "Cardinal",
         "health": 75,
-        "multiplier": 10,
+        "multiplier": 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -41,7 +41,7 @@ $(document).ready(function(){
     var bluejay = {
         "name": "Blue Jay",
         "health": 100,
-        "multiplier": 10,
+        "multiplier": 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -50,7 +50,7 @@ $(document).ready(function(){
     var woodpecker = {
         "name": "Woodpecker",
         "health": 200,
-        "multiplier": 10,
+        "multiplier": 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -60,7 +60,7 @@ $(document).ready(function(){
     var squirrel = {
         "name" : "Squirrel",
         "health" : 150,
-        "multiplier" : 20,
+        "multiplier" : 10,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -69,7 +69,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "Cat",
         "health" : 300,
-        "multiplier" : 20,
+        "multiplier" : 10,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -78,7 +78,7 @@ $(document).ready(function(){
     var owl = {
         "name" : "Owl",
         "health" : 250,
-        "multiplier" : 20,
+        "multiplier" : 10,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
