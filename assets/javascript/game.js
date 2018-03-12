@@ -84,7 +84,8 @@ $(document).ready(function(){
         }
     };
     
-    
+    // Parameters: name value and health value
+    // Displays health depending on hero
     function displayHeroHealth(name, health){
         if (name === "Cardinal")
             $('#cardinalStats').html(health);
@@ -103,7 +104,8 @@ $(document).ready(function(){
             $('#owlStats').html(health);
     }
 
-    // Pass in object. Check if perished
+    // Parameters: object
+    // Check if health is below 0
     function isCharacterDead(character){
         if (character.health <= 0){
             return true;
@@ -111,19 +113,24 @@ $(document).ready(function(){
         return false;
     }
 
-
+   
+    // Parameters: hero and villain object
     function checkHealth(hero, villain){
+        // Check for tie
         if (isCharacterDead(hero) && isCharacterDead(villain)){
             $('.heroHit').empty();
             $('.villainHit').empty();
-            $('.result').text(`Tie!`);
+            $('.result').text(`Tie! Please just be friends`);
             heroObj = {};
             villainObj = {};
         }
+
+        // Check for hero losing
         else if (isCharacterDead(hero) === true){
             heroObj = {};
             flag = false;
             
+            // Display result and change buttons
             $('.result').text(`${hero.name} has fallen!`);
             $('.replay-btn').removeClass("hide");
             $('.peck-btn').addClass("hide");
@@ -194,13 +201,18 @@ $(document).ready(function(){
             return;
     }
 
+    // Parameters: hero object
+    // Display appropriate win images if hero wins
     function didHeroWin(hero){
         if (!squirrelFlag && !catFlag && !owlFlag){
+            // Clear out result area and change buttons
             $('.heroHit').empty();
             $('.villainHit').empty();
             $('.result').text(`You have won the battle!`);
             $('.replay-btn').removeClass("hide");
             $('.peck-btn').addClass("hide");
+            
+            // Change images
             if (hero.name === "Cardinal"){
                 $(".cardinal-fight-image").removeClass("show");
                 $(".cardinal-win-image").addClass("show");
@@ -246,7 +258,7 @@ $(document).ready(function(){
         displayHeroHealth(heroName, heroHealth);
         displayVillainHealth(villainName, villainHealth);
     
-        // Check health
+        // Check health and if hero won
         checkHealth(hero, villain);
         didHeroWin(hero);
 
