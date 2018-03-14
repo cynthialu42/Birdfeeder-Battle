@@ -32,7 +32,7 @@ $(document).ready(function(){
     var cardinal = {
         "name": "Cardinal",
         "health": 75,
-        "multiplier": 20,
+        "multiplier": 15,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -41,7 +41,7 @@ $(document).ready(function(){
     var bluejay = {
         "name": "Blue Jay",
         "health": 100,
-        "multiplier": 15,
+        "multiplier": 10,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -60,7 +60,7 @@ $(document).ready(function(){
     var squirrel = {
         "name" : "Squirrel",
         "health" : 150,
-        "multiplier" : 10,
+        "multiplier" : 15,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -69,7 +69,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "Cat",
         "health" : 300,
-        "multiplier" : 20,
+        "multiplier" : 15,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -183,6 +183,8 @@ $(document).ready(function(){
             $('.heroHit').empty();
             $('.villainHit').empty();
             $('.result').text(`Tie! Please just be friends`);
+            $('.replay-btn').removeClass("hide");
+            $('.peck-btn').addClass("hide");
             heroObj = {};
             villainObj = {};
         }
