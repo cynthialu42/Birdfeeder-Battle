@@ -41,7 +41,7 @@ $(document).ready(function(){
     var bluejay = {
         "name": "Blue Jay",
         "health": 100,
-        "multiplier": 20,
+        "multiplier": 15,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -50,7 +50,7 @@ $(document).ready(function(){
     var woodpecker = {
         "name": "Woodpecker",
         "health": 200,
-        "multiplier": 20,
+        "multiplier": 10,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -69,7 +69,7 @@ $(document).ready(function(){
     var cat = {
         "name" : "Cat",
         "health" : 300,
-        "multiplier" : 10,
+        "multiplier" : 20,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -78,7 +78,7 @@ $(document).ready(function(){
     var owl = {
         "name" : "Owl",
         "health" : 250,
-        "multiplier" : 10,
+        "multiplier" : 15,
         "power" : function(){
             return Math.floor(Math.random() * this.multiplier);
         }
@@ -176,6 +176,7 @@ $(document).ready(function(){
    }
 
     // Parameters: hero and villain object
+    // Checks health and win/lose status
     function checkHealth(hero, villain){
         // Check for tie
         if (isCharacterDead(hero) && isCharacterDead(villain)){
@@ -299,6 +300,8 @@ $(document).ready(function(){
         villainAttackDiv.append(attacker);
         showAttackButton(heroObj, villainObj);
     }
+
+
 
     // On Click Events
 

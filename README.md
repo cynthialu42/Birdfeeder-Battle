@@ -9,4 +9,5 @@
 ### Cute things!
 * Hover over bouncing animation!
 * 30 handdrawn sprite gifs!
-* 5 sprites per character
+* Remaining heroes and villains are unselectable once one is chosen
+* Defeated villains are unable to be selected
