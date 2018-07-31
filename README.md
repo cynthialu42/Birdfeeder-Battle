@@ -1,4 +1,4 @@
-# week-4-game
+# Birdfeeder Battle!
 
 ### Game Play
 * Choose a hero and villain
@@ -11,3 +11,8 @@
 * 30 handdrawn sprite gifs!
 * Remaining heroes and villains are unselectable once one is chosen
 * Defeated villains are unable to be selected
+
+### Screenshots
+![Landing Page](https://i.imgur.com/b0DMimP.png)
+![Example Battle](https://i.imgur.com/g1GIfmu.png)
+![Victory](https://i.imgur.com/YNKW45C.png)
